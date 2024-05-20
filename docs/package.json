@@ -1,0 +1,23 @@
+{
+    "name": "easy-lazy-docs",
+    "version": "0.0.1",
+    "description": "Easy Lazy public front-end library documentation.",
+    "main": "index.js",
+    "scripts": {
+        "start-ssr": "docsify start .",
+        "start": "docsify serve --open"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/#.git"
+    },
+    "author": "Oğuzhan ÇART",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/#"
+    },
+    "homepage": "https://github.com/oguzhan18/",
+    "devDependencies": {
+        "docsify-cli": "^4.4.3"
+    }
+}

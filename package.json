@@ -1,5 +1,5 @@
 {
-    "name": "easy-lazy",
+    "name": "easy-lazyload-image",
     "version": "0.0.1",
     "description": "Structure for images where you can easily apply Lazyload to your images.",
     "main": "index.js",
@@ -33,5 +33,9 @@
         "http-server": "^14.1.1",
         "jest": "^29.7.0",
         "jest-environment-jsdom": "^29.7.0"
-    }
+    },
+    "bugs": {
+        "url": "https://github.com/oguzhan18/easy-lazy/issues"
+    },
+    "homepage": "https://easy-lazy-docs.vercel.app/#/"
 }
