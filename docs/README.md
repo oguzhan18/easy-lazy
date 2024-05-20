@@ -1,61 +1,68 @@
 # Overview
-
-CRT Scrapper Library is a versatile tool for scraping data from web pages. It provides various events to customize and control the scraping process, allowing users to retrieve data efficiently and reliably.
+The LazyLoad class is designed to handle the lazy loading of images on a webpage. This helps improve performance and user experience by loading images only when they are about to come into the viewport. The LazyLoad class provides various configuration options to customize the behavior and appearance of the images as they are loaded.
 
 ## Installation
 
-To install the Scraper Library, use the following command:
-
-```bash
-npm i easy-lazy-docs
+You can include the LazyLoad class in your project by downloading the script or including it via a `<script> </script>` tag.
+```html
+<script src="https://cdn.jsdelivr.net/npm//easy-lazyload-image@0.0.1/index.js"></script>
 ```
 ## Usage
 
-```javascript
-const { scrapeData } = require('easy-lazy-docs');
+To use the LazyLoad class, create a new instance of LazyLoad and pass the CSS selector of the container holding the images along with any desired options.
+### Basic Example
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LazyLoad Example</title>
+    <style>
+        #image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li {
+            width: 550px;
+            height: 310px;
+            margin: 10px;
+            align-items: center;
+            background-color: gray;
+            border: 1px solid black;
+        }
+        img {
+            width: 100%;
+        }
 
-const url = 'https://www.trendyol.com/sanaozel/2?versionKey=singleProducts_JFY_Original_Man_Deng';
-const targetClass = '.wrapper';
+    </style>
+</head>
+<body>
+    <div id="image-container">
+        <img data-src="image1.jpg" alt="Image 1">
+        <img data-src="image2.jpg" alt="Image 2">
+    </div>
 
-const options = {
-    beforeRequest: (url) => {
-        console.log(`Sending request to ${url}`);
-    },
-    afterRequest: (response) => {
-        console.log(`Received response with status ${response.status}`);
-    },
-    onError: (error) => {
-        console.error(`An error occurred: ${error.message}`);
-    },
-    beforeParse: ($) => {
-        console.log('Parsing HTML content...');
-    },
-    afterParse: (data) => {
-        console.log(`Scraped data: ${data}`);
-    },
-    beforeRetry: (error) => {
-        console.log(`Retrying due to error: ${error.message}`);
-    },
-    afterRetry: (error) => {
-        console.log('Retry attempt completed.');
-    },
-    beforeResponse: () => {
-        console.log('Processing HTTP response...');
-    },
-    timeout: 5000,
-    headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36',
-    },
-};
-
-scrapeData(url, targetClass, options)
-    .then(result => {
-        console.log(result);
-    })
-    .catch(error => {
-        console.error(error);
-    });
-
-
+    <script src="https://cdn.jsdelivr.net/npm//easy-lazyload-image@0.0.1/index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new LazyLoad('#image-container', {
+                threshold: 200,
+                animation: 'fade',
+                callback: (element) => console.log(`Loaded: ${element.src}`),
+                delay: 300,
+                placeholder: 'placeholder.jpg',
+                errorImage: 'error.jpg',
+                useIntersectionObserver: true,
+                responsive: true
+            });
+        });
+    </script>
+</body>
+</html>
 ```
 

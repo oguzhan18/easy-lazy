@@ -1,6 +1,6 @@
 {
     "name": "easy-lazyload-image",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Structure for images where you can easily apply Lazyload to your images.",
     "main": "index.js",
     "scripts": {
